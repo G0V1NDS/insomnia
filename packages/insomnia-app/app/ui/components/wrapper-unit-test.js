@@ -134,11 +134,10 @@ class WrapperUnitTest extends React.PureComponent<Props, State> {
       label: 'Test Suite Name',
       selectText: true,
       onComplete: async name => {
-        const unitTestSuite = await models.unitTestSuite.create({
+        models.unitTestSuite.create({
           parentId: activeWorkspace._id,
           name,
         });
-        await this._handleSetActiveUnitTestSuite(unitTestSuite);
       },
     });
   }
@@ -492,14 +491,6 @@ class WrapperUnitTest extends React.PureComponent<Props, State> {
         </div>
       </ErrorBoundary>
     );
-  }
-
-  componentDidMount() {
-    const { allUnitTests } = this.props.wrapperProps;
-
-    models.unitTest.all().then(res => {
-      this.setState({ unitTests: allUnitTests });
-    });
   }
 
   render() {
