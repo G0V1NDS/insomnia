@@ -304,6 +304,10 @@ export const selectActiveUnitTests = createSelector(
   },
 );
 
+export const selectUnitTests = createSelector(selectEntitiesLists, entities => {
+  return entities.unitTests;
+});
+
 export const selectActiveUnitTestSuites = createSelector(
   selectEntitiesLists,
   selectActiveWorkspace,

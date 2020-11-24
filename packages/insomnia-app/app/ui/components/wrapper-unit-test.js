@@ -495,8 +495,10 @@ class WrapperUnitTest extends React.PureComponent<Props, State> {
   }
 
   componentDidMount() {
+    const { allUnitTests } = this.props.wrapperProps;
+
     models.unitTest.all().then(res => {
-      this.setState({ unitTests: res });
+      this.setState({ unitTests: allUnitTests });
     });
   }
 

@@ -53,6 +53,7 @@ import {
   selectActiveWorkspaceMeta,
   selectEntitiesLists,
   selectSyncItems,
+  selectUnitTests,
   selectUnseenWorkspaces,
   selectWorkspaceRequestsAndRequestGroups,
 } from '../redux/selectors';
@@ -1455,6 +1456,7 @@ function mapStateToProps(state, props) {
   const activeUnitTestSuite = selectActiveUnitTestSuite(state, props);
   const activeUnitTestSuites = selectActiveUnitTestSuites(state, props);
   const activeUnitTestResult = selectActiveUnitTestResult(state, props);
+  const allUnitTests = selectUnitTests(state, props);
 
   // Proto file stuff
   const activeProtoFiles = selectActiveProtoFiles(state, props);
@@ -1473,6 +1475,7 @@ function mapStateToProps(state, props) {
     activeUnitTestSuite,
     activeUnitTestSuites,
     activeUnitTests,
+    allUnitTests,
     activeWorkspace,
     activeWorkspaceClientCertificates,
     activeWorkspaceMeta,
